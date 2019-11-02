@@ -1,3 +1,3 @@
 export const Config = {
-    api: `https://developers.deezer.com/api`,
+    api: `https://api.deezer.com`,
 }

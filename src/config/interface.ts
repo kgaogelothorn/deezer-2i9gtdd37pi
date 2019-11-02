@@ -1,9 +1,13 @@
 interface Track {
+  id: number;
   albumArt: string;
-  artist: string;
+  artist: Artist;
   duration: string;
-  album: string;
-  track: string;
+  album: Album;
+  title: string;
 }
+interface Album extends Array<any> {}
+interface Artist extends Array<any> {}
+interface Tracks extends Array<Track> {}
 
-export { Track }
+export { Track, Tracks };
