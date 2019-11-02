@@ -10,10 +10,10 @@ export class ApiService {
   constructor(readonly http: HttpClient) { }
 
 
-  search(data) {
-    return this.http.get(`${this.baseApi}/search?q=${data}`);
+  search(name: string) {
+    return this.http.get(`${this.baseApi}/search?q=${name}`);
   }
-  getTracks() {
-    return this.http.get(this.baseApi, this.options);
+  getArtist(id) {
+    return this.http.get(`${this.baseApi}/artist/${id}`);
   }
 }

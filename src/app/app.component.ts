@@ -19,8 +19,13 @@ export class AppComponent implements OnInit {
     this.search = new FormGroup({
        track: new FormControl(null, Validators.required),
     });
+
     this.api.search('move').subscribe((data) => {
       this.setData(data);
+    });
+
+    this.search.valueChanges.subscribe(value => {
+      this.searchTrack();
     });
   }
 
@@ -41,9 +46,9 @@ export class AppComponent implements OnInit {
       const track = {
          id: element.id,
          title: element.title,
-         album: element.album.title,
+         album: element.album,
          duration: element.duration,
-         artist: element.artist.name,
+         artist: element.artist,
          albumArt: element.album.cover
       };
       this.tracks.push(track);

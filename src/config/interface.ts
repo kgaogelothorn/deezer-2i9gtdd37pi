@@ -6,6 +6,7 @@ interface Track {
   album: Album;
   title: string;
 }
+
 interface Album extends Array<any> {}
 interface Artist extends Array<any> {}
 interface Tracks extends Array<Track> {}

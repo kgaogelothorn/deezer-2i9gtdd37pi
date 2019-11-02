@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TracksComponent } from './components/tracks/tracks.component';
+import { ArtistComponent } from './components/artist/artist.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'tracks', pathMatch: 'full'},
-  { path: 'tracks', component: TracksComponent}
+  { path: 'tracks', component: TracksComponent},
+  { path: 'artist/:id', component: ArtistComponent}
 ];
 
 @NgModule({

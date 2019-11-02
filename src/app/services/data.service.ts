@@ -6,5 +6,6 @@ import { ReplaySubject } from 'rxjs';
 })
 export class DataService {
   data = new ReplaySubject();
+  artistData = new ReplaySubject();
   constructor() { }
 }
