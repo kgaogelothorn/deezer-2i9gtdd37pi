@@ -19,29 +19,36 @@ export class AppComponent implements OnInit {
     this.search = new FormGroup({
        track: new FormControl(null, Validators.required),
     });
-
+    this.api.search('move').subscribe((data) => {
+      this.setData(data);
+    });
   }
 
   searchTrack() {
     if (this.search.valid) {
       const value = this.search.controls.track.value;
       this.api.search(value).subscribe((data: any) => {
-        data.data.forEach((element: any) => {
-             const track = {
-                id: element.id,
-                title: element.title,
-                album: element.album.title,
-                duration: element.duration,
-                artist: element.artist.name,
-                albumArt: element.album.cover
-             };
-             this.tracks.push(track);
-        });
-        this.dataService.data.next(this.tracks);
-        console.log(this.tracks);
+        debugger
+        this.setData(data);
        });
     } else {
       alert('Please add two or more characters');
     }
+  }
+
+  setData(data) {
+    data.data.forEach((element: any) => {
+      const track = {
+         id: element.id,
+         title: element.title,
+         album: element.album.title,
+         duration: element.duration,
+         artist: element.artist.name,
+         albumArt: element.album.cover
+      };
+      this.tracks.push(track);
+ });
+    this.dataService.data.next(this.tracks);
+    console.log(this.tracks);
   }
 }
