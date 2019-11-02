@@ -28,7 +28,6 @@ export class AppComponent implements OnInit {
     if (this.search.valid) {
       const value = this.search.controls.track.value;
       this.api.search(value).subscribe((data: any) => {
-        debugger
         this.setData(data);
        });
     } else {
@@ -37,6 +36,7 @@ export class AppComponent implements OnInit {
   }
 
   setData(data) {
+    this.tracks = [];
     data.data.forEach((element: any) => {
       const track = {
          id: element.id,
