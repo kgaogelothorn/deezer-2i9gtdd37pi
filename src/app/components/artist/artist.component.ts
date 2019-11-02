@@ -14,7 +14,7 @@ export class ArtistComponent implements OnInit {
     const artistId =   this.route.snapshot.queryParams.returnUrl;
     this.api.getArtist(artistId).subscribe(res => {
       this.artist = res;
-      console.log(res);
+      console.log('Arstis', this.artist);
    });
   }
 
