@@ -4,12 +4,12 @@
         <svg *ngIf="!track.albumArt" class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">No Image</text></svg>
         <img *ngIf="track.albumArt" [src]="track.albumArt" class="bd-placeholder-img card-img-top" width="100%" height="180">
           <div class="card-body">
-            <h5 class="card-title">{{track.title}} <span class="badge badge-light float-right">{{track.duration}}</span></h5> 
+            <h5 class="card-title">{{track.title}} <span class="badge badge-light float-right">{{track.duration}} </span></h5> 
           </div>
           <div class="card-footer">
-            <p class="card-text" (click)="showArtist(track.artist.id)">
+            <a [routerLink]="['/artist/'+ track.artist.id]" routerLinkActive="router-link-active" class="card-text d-block">
                 by {{track.artist.name}}
-            </p>
+            </a>
             <small class="text-muted">{{track.album.title}}</small>
           </div>
         </div> 

@@ -13,7 +13,11 @@ export class ApiService {
   search(name: string) {
     return this.http.get(`${this.baseApi}/search?q=${name}`);
   }
-  getArtist(id) {
+  getArtist(id: string) {
     return this.http.get(`${this.baseApi}/artist/${id}`);
+  }
+
+  getTracklist(req: any) {
+     return this.http.get(req);
   }
 }

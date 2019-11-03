@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
        track: new FormControl(null, Validators.required),
     });
 
-    this.api.search('move').subscribe((data) => {
+    this.api.search('eminem').subscribe((data) => {
       this.setData(data);
     });
 
@@ -49,11 +49,10 @@ export class AppComponent implements OnInit {
          album: element.album,
          duration: element.duration,
          artist: element.artist,
-         albumArt: element.album.cover
+         albumArt: element.album.cover_big
       };
       this.tracks.push(track);
  });
     this.dataService.data.next(this.tracks);
-    console.log(this.tracks);
   }
 }

@@ -11,14 +11,12 @@ import { Router } from '@angular/router';
 })
 export class TracksComponent implements OnInit {
   tracks: Tracks = [];
-  constructor(readonly api: ApiService, readonly dataService: DataService, readonly router: Router) {
+  constructor(readonly api: ApiService,
+              readonly dataService: DataService,
+              readonly router: Router) {
     this.dataService.data.subscribe((res: Tracks) => {
        this.tracks = res;
     });
    }
   ngOnInit() {}
-
-  showArtist(id) {
-     this.router.navigate([`artist/${id}`]);
-  }
 }

@@ -2,7 +2,7 @@ interface Track {
   id: number;
   albumArt: string;
   artist: Artist;
-  duration: string;
+  duration: number;
   album: Album;
   title: string;
 }
