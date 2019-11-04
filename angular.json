@@ -22,6 +22,7 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
+
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -62,11 +63,15 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "musicdb-app:build"
+            "browserTarget": "musicdb-app:build",
+            "proxyConfig": "proxy.conf.json"
+
           },
           "configurations": {
             "production": {
-              "browserTarget": "musicdb-app:build:production"
+              "browserTarget": "musicdb-app:build:production",
+              "proxyConfig": "proxy.conf.json"
+
             }
           }
         },

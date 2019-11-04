@@ -5,19 +5,19 @@ import { Config } from '../../config/config';
   providedIn: 'root'
 })
 export class ApiService {
-  options = {headers: {'Content-type': 'application/json'}};
+  options = {headers: {'Content-type': 'application/json', }};
   baseApi = Config.api;
   constructor(readonly http: HttpClient) { }
 
 
   search(name: string) {
-    return this.http.get(`${this.baseApi}/search?q=${name}`);
+    return this.http.get(`/search?q=${name}`);
   }
   getArtist(id: string) {
-    return this.http.get(`${this.baseApi}/artist/${id}`);
+    return this.http.get(`/artist/${id}`);
   }
 
   getTracklist(req: any) {
-     return this.http.get(req);
+     return this.http.get(req.replace('https://api.deezer.com', ''));
   }
 }
