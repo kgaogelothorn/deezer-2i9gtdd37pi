@@ -20,7 +20,6 @@ export class ArtistComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.api.getArtist(this.artistId).subscribe(data => {
       this.artist = data;
-      console.log('this.artist', this.artist);
       this.getTraclist(data);
     });
   }
@@ -29,7 +28,6 @@ export class ArtistComponent implements AfterViewInit {
     this.api.getTracklist(data.tracklist.replace('limit=50', 'limit=5')).subscribe(
       (tracks: any) => {
         this.tracklist = tracks.data;
-        console.log('this.tracklist', this.tracklist);
       }
     );
   }

@@ -16,7 +16,7 @@
                 <div>
                     <h5>Top Tracks:</h5>
                     <div class="alert alert-secondary" role="alert" *ngFor="let track  of tracklist">
-                        <img style="display: inline-block;" width="20px" [src]="track.album.cover" />  {{track.title}}
+                        <img style="display: inline-block;" width="20px" [src]="track.album.cover" />  {{track.title}}<span class="badge badge-light float-right">{{track.duration}} </span>
                      </div>
                 </div>
               </div>
