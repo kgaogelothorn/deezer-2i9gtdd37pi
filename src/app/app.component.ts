@@ -43,7 +43,7 @@ export class AppComponent implements OnInit {
   setData(data) {
     this.tracks = [];
     data.data.forEach((element: any) => {
-      const track = {
+      const track: any = {
          id: element.id,
          title: element.title,
          album: element.album,

@@ -20,4 +20,8 @@ export class ApiService {
   getTracklist(req: any) {
      return this.http.get(req.replace('https://api.deezer.com', ''));
   }
+
+  getTrackInfo(id: string) {
+    return this.http.get(`/track/${id}`);
+  }
 }

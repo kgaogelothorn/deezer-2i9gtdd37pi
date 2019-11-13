@@ -16,7 +16,7 @@ export class ArtistComponent implements AfterViewInit {
     this.route.params.subscribe((param: any) => {
       this.artistId = Number(param.id);
     });
-   }
+  }
   ngAfterViewInit() {
     this.api.getArtist(this.artistId).subscribe(data => {
       this.artist = data;
