@@ -4,8 +4,7 @@
           <div class="row no-gutters">
             <div class="col-md-3 position-relative">
               <img *ngIf="track.album.cover_big" [src]="track.album.cover_big" alt="track.title" class="bd-abs bd-placeholder-img" width="100%" height="250" >
-              <svg *ngIf="!track.artist.picture" class="bd-abs bd-placeholder-img" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image</text></svg>
-              <p class="card-title">Duration: {{track.duration}}</p>
+                <p class="card-text">Duration: {{track.duration}}</p>
                 <p class="card-text">Fans: {{track.rank}}</p>
                 <p class="card-text">Release Date: {{track.release_date | date:'shortDate'}}</p>
             </div>
@@ -14,7 +13,7 @@
                 <div>
                     <h5>{{track.title}}</h5>
                     <div class="alert alert-secondary" role="alert">
-                        <img style="display: inline-block;" width="30px" [src]="track.artist.picture" />{{track.artist.name}}<a class="btn btn-outline-dark btn-sm float-right" href="{{track.link}}" role="button">Preview</a>
+                      <img style="display: inline-block;" width="30px" [src]="track.artist.picture" />{{track.artist.name}}<a class="btn btn-outline-dark btn-sm float-right" href="{{track.link}}" target="_blank" role="button">Preview</a>
                     </div>
                 </div>
               </div>
