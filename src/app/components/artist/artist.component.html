@@ -3,8 +3,8 @@
       <div class="card mb-3">
           <div class="row no-gutters">
             <div class="col-md-4 position-relative">
+            <svg *ngIf="!artist.picture" class="bd-abs bd-placeholder-img" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image</text></svg>
               <img *ngIf="artist.picture" [src]="artist.picture_big" alt="artist.name" class="bd-abs bd-placeholder-img" width="100%" height="250" >
-              <svg *ngIf="!artist.picture" class="bd-abs bd-placeholder-img" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image</text></svg>
               <div class="card-content h-100 position-relative flex-column d-flex justify-content-center align-items-center">
                 <h5 class="card-title">{{artist.name}}</h5>
                   <p class="card-text">Fans: {{artist.nb_fan}}</p>
