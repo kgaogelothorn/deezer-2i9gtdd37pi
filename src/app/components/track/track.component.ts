@@ -21,14 +21,7 @@ export class TrackComponent implements OnInit {
   ngOnInit() {
     this.api.getTrackInfo(this.trackId).subscribe(data => {
       this.track = data;
-      this.getTrackInfo(data);
-
     });
-  }
-  getTrackInfo(data) {
-    this.api.getTrackInfo(data.trackInfo).subscribe((tracks: any) => {
-      this.trackinfo = tracks.data ;
-    });
-  }
 
+  }
 }
