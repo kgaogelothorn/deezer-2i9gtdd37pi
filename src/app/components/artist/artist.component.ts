@@ -2,7 +2,6 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
-import { map, mergeMap } from 'rxjs/operators';
 @Component({
   selector: 'app-artist',
   templateUrl: './artist.component.html',
