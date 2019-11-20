@@ -1,6 +1,7 @@
 <div class="container">
-  <div class="row my-4">
-    <div class="col-md-3 col-sm-6 pb-4" *ngFor="let track of tracks">
+    <app-loader *ngIf="loading"></app-loader>
+  <div class="row my-4" *ngIf="!loading">
+    <div class="col-md-3 col-sm-6 pb-4 animated zoomIn" *ngFor="let track of tracks">
       <div class="shadow-sm">
         <svg *ngIf="!track.albumArt" class="bd-placeholder-img card-img-top" width="100%" height="225"
           xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"

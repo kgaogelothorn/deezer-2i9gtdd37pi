@@ -12,6 +12,7 @@ export class TrackComponent implements OnInit {
   trackId: any = '';
   track = {};
   trackinfo = {};
+  loading = true;
   constructor(readonly api: ApiService, readonly dataService: DataService, readonly route: ActivatedRoute) { 
     this.route.params.subscribe((params: any) => {
       this.trackId = Number(params.id);
@@ -21,6 +22,7 @@ export class TrackComponent implements OnInit {
   ngOnInit() {
     this.api.getTrackInfo(this.trackId).subscribe(data => {
       this.track = data;
+      this.loading = false;
     });
 
   }

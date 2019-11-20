@@ -1,11 +1,12 @@
 <div class="container">
-    <div class="row featurette">
-        <div class="col-md-7 order-md-2">
+    <app-loader *ngIf="loading"></app-loader>
+    <div class="row featurette" *ngIf="!loading">
+        <div class="col-md-7 order-md-2 animated fadeIn">
             <h2 class="featurette-heading">Top Tracks </h2>
             <div class="media text-muted pt-3" *ngFor="let track of tracklist">
                     <img *ngIf="track.album.cover" [src]="track.album.cover" alt="track.title"
-                        class="bd-placeholder-img mr-2 rounded" width="32" height="32">
-                    <svg *ngIf="!track.album.cover" class="bd-placeholder-img mr-2 rounded" width="32" height="32"
+                        class="bd-placeholder-img mr-2 rounded animated zoomIn" width="32" height="32">
+                    <svg *ngIf="!track.album.cover" class="bd-placeholder-img mr-2 rounded animated zoomIn" width="32" height="32"
                         xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
                         aria-label="Placeholder: 32x32">
                         <title>Placeholder</title>
@@ -17,15 +18,15 @@
                             <strong class="text-gray-dark"><a [routerLink]="['/track/' + track.id]" routerLinkActive="router-link-active">{{track.title}}</a></strong>
                             <span>Preview</span>
                         </div>
-                        <span class="d-block">{{track?.explicit_lyrics}}</span>
+                        <span class="d-block">explicit: {{track?.explicit_lyrics}}</span>
                     </div>
                 </div>
         </div>
-        <div class="col-md-5 order-md-1">
-            <img *ngIf="artist.picture" [src]="artist.picture_big" alt="artist.name" class="bd-abs bd-placeholder-img"
+        <div class="col-md-5 order-md-1 animated fadeIn">
+            <img *ngIf="artist.picture" [src]="artist.picture_big" alt="artist.name" class="bd-abs bd-placeholder-img animated zoomIn"
                 width="94%" height="500">
             <svg *ngIf="!artist.picture"
-                class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+                class="bd-placeholder-img bd-placeholder-img-lg animated zoomIn featurette-image img-fluid mx-auto" width="500"
                 height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false"
                 role="img" aria-label="Placeholder: 500x500">
                 <title>Placeholder</title>

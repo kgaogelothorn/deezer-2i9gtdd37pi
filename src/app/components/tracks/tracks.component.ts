@@ -9,16 +9,19 @@ import { Tracks } from '../../../config/interface';
 })
 export class TracksComponent implements OnInit, AfterViewInit {
   tracks: Tracks = [];
+  loading = true;
 
   constructor(readonly dataService: DataService) {
    }
 
   ngOnInit() {
+     this.dataService.data.subscribe((res: Tracks) => {
+      this.tracks = res;
+      this.loading = false;
+    });
   }
 
 ngAfterViewInit() {
-  this.dataService.data.subscribe((res: Tracks) => {
-    this.tracks = res;
-  });
+
 }
 }

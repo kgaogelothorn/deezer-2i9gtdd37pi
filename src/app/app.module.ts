@@ -8,13 +8,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ArtistComponent } from './components/artist/artist.component';
 import { TrackComponent } from './components/track/track.component';
+import { LoaderComponent } from './shared/loader/loader.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TracksComponent,
     ArtistComponent,
-    TrackComponent
+    TrackComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
