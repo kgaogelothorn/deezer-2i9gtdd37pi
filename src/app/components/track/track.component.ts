@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../../services/api.service';
-import { ActivatedRoute } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
 import { DataService } from 'src/app/services/data.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-track',
@@ -12,7 +12,7 @@ export class TrackComponent implements OnInit {
   trackId: any = '';
   track = {};
   trackinfo = {};
-  constructor(readonly api: ApiService, readonly route: ActivatedRoute, readonly dataService: DataService) { 
+  constructor(readonly api: ApiService, readonly dataService: DataService, readonly route: ActivatedRoute) { 
     this.route.params.subscribe((params: any) => {
       this.trackId = Number(params.id);
     });
@@ -24,4 +24,6 @@ export class TrackComponent implements OnInit {
     });
 
   }
+
+
 }

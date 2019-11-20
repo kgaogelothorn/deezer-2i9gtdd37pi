@@ -1,8 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { Track, Tracks } from 'src/config/interface';
-import { ApiService } from '../../services/api.service';
-import { DataService } from 'src/app/services/data.service';
-import { Router } from '@angular/router';
+import { DataService } from '../../services/data.service';
+import { Tracks } from '../../../config/interface';
 
 @Component({
   selector: 'app-tracks',
@@ -11,16 +9,16 @@ import { Router } from '@angular/router';
 })
 export class TracksComponent implements OnInit, AfterViewInit {
   tracks: Tracks = [];
-  constructor(readonly api: ApiService,
-              readonly dataService: DataService,
-              readonly router: Router) {
-  
+
+  constructor(readonly dataService: DataService) {
    }
-  ngOnInit() {}
+
+  ngOnInit() {
+  }
 
 ngAfterViewInit() {
   this.dataService.data.subscribe((res: Tracks) => {
     this.tracks = res;
- });
+  });
 }
 }

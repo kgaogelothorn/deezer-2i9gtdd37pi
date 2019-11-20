@@ -1,28 +1,43 @@
-<div class="row mt-5">
-  <div class="col">
-      <div class="card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-4 position-relative">
-            <svg *ngIf="!artist.picture" class="bd-abs bd-placeholder-img" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image</text></svg>
-              <img *ngIf="artist.picture" [src]="artist.picture_big" alt="artist.name" class="bd-abs bd-placeholder-img" width="100%" height="250" >
-              <div class="card-content h-100 position-relative flex-column d-flex justify-content-center align-items-center">
-                <h5 class="card-title">{{artist.name}}</h5>
-                  <p class="card-text">Fans: {{artist.nb_fan}}</p>
-                  <p class="card-text">Albums: {{artist.nb_album}}</p>
-              </div>
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <div>
-                    <h5>Top Tracks:</h5>
-                    <div class="alert alert-secondary" role="alert" *ngFor="let track  of tracklist">
-                        <img style="display: inline-block;" width="20px" [src]="track.album.cover" /><a [routerLink]="['/track/' + track.id]" routerLinkActive="router-link-active">{{track.title}}</a>
-                        <span class="badge badge-light float-right">{{track.duration}} </span>
-                     </div>
+<div class="container">
+    <div class="row featurette">
+        <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading">Top Tracks </h2>
+            <div class="media text-muted pt-3" *ngFor="let track of tracklist">
+                    <img *ngIf="track.album.cover" [src]="track.album.cover" alt="track.title"
+                        class="bd-placeholder-img mr-2 rounded" width="32" height="32">
+                    <svg *ngIf="!track.album.cover" class="bd-placeholder-img mr-2 rounded" width="32" height="32"
+                        xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
+                        aria-label="Placeholder: 32x32">
+                        <title>Placeholder</title>
+                        <rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff"
+                            dy=".3em">32x32</text>
+                    </svg>
+                    <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                        <div class="d-flex justify-content-between align-items-center w-100">
+                            <strong class="text-gray-dark"><a [routerLink]="['/track/' + track.id]" routerLinkActive="router-link-active">{{track.title}}</a></strong>
+                            <span>Preview</span>
+                        </div>
+                        <span class="d-block">{{track?.explicit_lyrics}}</span>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
         </div>
-  </div>
+        <div class="col-md-5 order-md-1">
+            <img *ngIf="artist.picture" [src]="artist.picture_big" alt="artist.name" class="bd-abs bd-placeholder-img"
+                width="94%" height="500">
+            <svg *ngIf="!artist.picture"
+                class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+                height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false"
+                role="img" aria-label="Placeholder: 500x500">
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa"
+                    dy=".3em">500x500</text>
+            </svg>
+            <div
+                class="card-content h-500 position-relative flex-column d-flex justify-content-center align-items-center">
+                <h5 class="card-title">{{artist.name}}</h5>
+                <p class="card-text">Fans: {{artist.nb_fan}}</p>
+                <p class="card-text">Albums: {{artist.nb_album}}</p>
+            </div>
+        </div>
+    </div>
 </div>
