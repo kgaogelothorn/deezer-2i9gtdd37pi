@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "prestart": "npm install",
-    "start": "ng serve --port 3000 --proxy-config proxy.conf.json",
-    "build": "ng build",
+    "start": "ng serve -o",
+    "build": "ng build --prod",
     "pretest": "npm install",
     "test": "ng test",
     "lint": "ng lint",
